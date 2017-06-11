@@ -1,0 +1,10 @@
+bin/
+Scripts/
+Lib/
+Include/
+pip-selfcheck.json
+*.pyc
+
+archiveorggallery2disk/cache/*
+archiveorggallery2disk/output/*
+.idea
