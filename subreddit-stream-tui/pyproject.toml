@@ -1,0 +1,11 @@
+[project]
+name = "webdev-tui"
+version = "0.1.0"
+requires-python = ">=3.14"
+dependencies = [
+    "praw>=7.8.0",
+    "textual>=0.80.0",
+]
+
+[project.scripts]
+webdev-tui = "reddit_tui:main"
