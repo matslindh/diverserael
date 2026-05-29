@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Reddit r/webdev live comment viewer.
+Reddit subreddit live comment viewer.
 
 Usage:
     export REDDIT_CLIENT_ID=your_client_id
@@ -31,7 +31,7 @@ from textual.widgets import Footer, Header, ListItem, ListView, Static
 
 SUBREDDIT = os.environ['REDDIT_SUB']
 MAX_ROWS = 200
-USER_AGENT = "webdev-tui/1.0"
+USER_AGENT = "subreddit-tui/1.0"
 
 _submission_age_cache: dict[str, float] = {}
 
@@ -182,7 +182,7 @@ class RedditTUI(App[None]):
             subreddit = reddit.subreddit(SUBREDDIT)
             self.call_from_thread(
                 self._set_status,
-                "Streaming r/webdev  ·  [bold]P[/bold] pause  "
+                f"Streaming r/{SUBREDDIT}  ·  [bold]P[/bold] pause  "
                 "[bold]C[/bold] clear  [bold]Enter[/bold] open link  [bold]Q[/bold] quit",
             )
 
@@ -245,7 +245,7 @@ class RedditTUI(App[None]):
             self._set_status("[yellow]⏸ Paused — press P to resume[/yellow]")
         else:
             self._set_status(
-                "Streaming r/webdev  ·  [bold]P[/bold] pause  "
+                f"Streaming r/{SUBREDDIT}  ·  [bold]P[/bold] pause  "
                 "[bold]C[/bold] clear  [bold]Enter[/bold] open link  [bold]Q[/bold] quit"
             )
             self.query_one("#list", ListView).scroll_end(animate=False)
